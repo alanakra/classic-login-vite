@@ -2,7 +2,8 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 export default defineConfig({
     server: {
-		host: 'demo-register-client.local'
+		host: 'demo-register-client.local',
+		port: 5173
 	},
 	root: resolve(__dirname, 'pages'),
 	build: {
