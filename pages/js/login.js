@@ -1,27 +1,42 @@
-const loginForm = document.getElementById('login-form')
+// TODO: Redirect to profile if im already logged in
+import { API_URL } from "./main"
+const loginForm = document.getElementById('loginForm')
+
+function showResult(message, type = 'info') {
+    const resultDiv = document.getElementById('result')
+    resultDiv.innerHTML = `<div class="result ${type}">${message}</div>`
+}
+
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault()
-    const uname = document.getElementById('uname').value
-    const upassword = document.getElementById('upassword').value
-    const formData = new FormData()
-    formData.append('uname', uname)
-    formData.append('upassword', upassword)
+    const username = document.getElementById('username').value
+    const password = document.getElementById('password').value
     
-    const response = await fetch('http://demo-register-client.local:8080/login.php', {
-        method: 'POST',
-        body: formData
-    })
-    const data = await response.text()
+    if (!username || !password) {
+        showResult('Please fill in all fields', 'error')
+        return
+    }
     
-    const messageDiv = document.getElementById('message')
-    if (response.ok) {
-        messageDiv.textContent = data
-        messageDiv.style.color = ''
-    } else if (response.status === 400) {
-        messageDiv.textContent = data
-        messageDiv.style.color = 'red'
-    } else {
-        messageDiv.textContent = `Error: ${data}`
-        messageDiv.style.color = ''
+    try {
+        const formData = new FormData()
+        formData.append('uname', username)
+        formData.append('upassword', password)
+        
+        const response = await fetch(`${API_URL}/login.php`, {
+            method: 'POST',
+            body: formData,
+            credentials: 'include'
+        })
+        
+        const data = await response.json()
+        
+        if (data.success) {
+            showResult(`Login successful! Welcome ${data.user.username}`, 'success')
+            // TODO: Show User Options (profile page, logout, etc.)
+        } else {
+            showResult(`Error: ${data.error}`, 'error')
+        }
+    } catch (error) {
+        showResult(`Connection error: ${error.message}`, 'error')
     }
 })
