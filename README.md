@@ -1,4 +1,4 @@
-# Cross-site Front Platform (in progress)
+# Cross-Origin Auth Frontend
 
 This repository contains the **front-end** part of a project built with **Vite.js**.  
 It is designed to communicate securely with an external **API hosted on a different origin** (domain, port, or protocol). The link of the API repo is [here](https://github.com/alanakra/docker-php-auth)
