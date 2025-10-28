@@ -54,9 +54,9 @@ Edit `/etc/hosts` (requires `sudo`):
 
 Then access your applications via:
 
-    `http://demo-register-client.local:5173`
+`http://demo-register-client.local:5173`
 
-    `http://demo-register-server.local:8080`
+`http://demo-register-server.local:8080`
 
 Your browser will now treat them as separate origins — ideal for testing CORS and cookie behavior.
 
