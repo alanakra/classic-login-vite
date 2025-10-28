@@ -50,19 +50,7 @@ Edit `/etc/hosts` (requires `sudo`):
 `127.0.0.1 demo-register-client.local`
 `127.0.0.1 demo-register-server.local`
 
-
-### 2. Configure Vite to use your custom domain
-In your `vite.config.js`:
-```js
-export default {
-  server: {
-    host: 'demo-register-client.local',
-    port: 5173
-  }
-}
-```
-
-### 3. Start your front-end and back-end
+### 2. Start your front-end and back-end
 
 Then access your applications via:
 
@@ -71,11 +59,6 @@ Then access your applications via:
     `http://demo-register-server.local:8080`
 
 Your browser will now treat them as separate origins — ideal for testing CORS and cookie behavior.
-
-### 4. Enable HTTPS locally
-
-For cookies with the Secure flag, you should create a self-signed certificate and use HTTPS locally.
-You can use [this NPM package](https://github.com/liuweiGL/vite-plugin-mkcert) and serve localhost with custom domain.
 
 # Getting Started
 
