@@ -54,7 +54,7 @@ Edit `/etc/hosts` (requires `sudo`):
 
 Then access your applications via:
 
-`http://demo-register-client.local:5173`
+`https://demo-register-client.local:5173`
 
 `http://demo-register-server.local:8080`
 
