@@ -5,7 +5,7 @@ It is designed to communicate securely with an external **API hosted on a differ
 
 ## Environment
 
-- **Front-end:** http://demo-register-client.local:5173  
+- **Front-end:** https://demo-register-client.local:5173  
 - **Back-end (API):** http://demo-register-server.local:8080/
 
 This architecture is considered **cross-site**, since both the client and server use different hostnames and ports.
