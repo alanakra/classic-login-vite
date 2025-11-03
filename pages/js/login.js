@@ -33,6 +33,8 @@ loginForm.addEventListener('submit', async (e) => {
         if (data.success) {
             showResult(`Login successful! Welcome ${data.user.username}`, 'success')
             // TODO: Show User Options (profile page, logout, etc.)
+            console.log(data)
+            document.cookie = data.cookie_header
         } else {
             showResult(`Error: ${data.error}`, 'error')
         }
