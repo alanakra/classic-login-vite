@@ -7,7 +7,7 @@ loginForm.addEventListener('submit', async (e) => {
     formData.append('uname', uname)
     formData.append('upassword', upassword)
     
-    const response = await fetch('http://demo-register-client.local:8080/register.php', {
+    const response = await fetch('https://demo-register-server.local:8081/register.php', {
         method: 'POST',
         body: formData
     })
